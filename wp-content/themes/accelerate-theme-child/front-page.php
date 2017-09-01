@@ -15,7 +15,16 @@
 get_header(); ?>
 
 	<div id="primary" class="home-page hero-content">
-	  <section class="recent-posts">
+	  <div class="main-content" role="main">
+			<?php while ( have_posts() ) : the_post(); ?>
+				<?php the_content(); ?>
+				<a class="button" href="<?php echo site_url('/blog/') ?>">View Our Work</a>
+			<?php endwhile; // end of the loop. ?>
+		</div><!-- .main-content -->
+	</div><!-- #primary -->
+         
+    <!-- RECENT BLOG POST -->     
+         <section class="recent-posts">
           <div class="site-content">
            <div class="blog-post">
              <h4>From the Blog</h4>
@@ -27,14 +36,6 @@ get_header(); ?>
               <?php wp_reset_query(); ?>
            </div>
           </div>
-      </section>
-        
-		<div class="main-content" role="main">
-			<?php while ( have_posts() ) : the_post(); ?>
-				<?php the_content(); ?>
-				<a class="button" href="<?php echo site_url('/blog/') ?>">View Our Work</a>
-			<?php endwhile; // end of the loop. ?>
-		</div><!-- .main-content -->
-	</div><!-- #primary -->
+      </section>    		
 
 <?php get_footer(); ?>
